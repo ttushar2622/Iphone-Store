@@ -1,6 +1,8 @@
+import { Dashboard } from "./admin/dashboard";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
 import Homepage from "./pages/Homepage";
+import IpadPage from "./pages/IpadPage";
 
 function App() {
   return (
@@ -18,8 +20,7 @@ function App() {
      
       </div><br/><br/><br/><br/>
       <Homepage />
-     
-    </div>
+     </div>
   );
 }
 
