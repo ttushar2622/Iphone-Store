@@ -1,8 +1,11 @@
+import IpadPage from "./pages/IpadPage";
 import {Dashboard} from './admin/dashboard';
+
 function App() {
   return (
     <div className="App">
-      <Dashboard/>
+         <IpadPage/>
+        <Dashboard/>
     </div>
   );
 }
