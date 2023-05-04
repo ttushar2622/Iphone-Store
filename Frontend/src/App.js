@@ -1,8 +1,7 @@
-import { Dashboard } from "./admin/dashboard";
+import Router from "./AllRoutes/Router";
+import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
-import Homepage from "./pages/Homepage";
-import IpadPage from "./pages/IpadPage";
 
 function App() {
   return (
@@ -13,14 +12,15 @@ function App() {
           width: "100%",
           backgroundColor: "rgb(67, 67, 68)",
           height: "50px",
-        }}
-      >
+          zIndex: "100",
+        }}>
         <NavbarTop />
         <Navbarbottom />
-     
-      </div><br/><br/><br/><br/>
-      <Homepage />
-     </div>
+      </div>{" "}
+      <br /> <br /> <br /> <br />
+      <Router />
+      <Footer/>
+    </div>
   );
 }
 
