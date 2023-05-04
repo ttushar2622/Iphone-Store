@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 const postSchema = mongoose.Schema(
   {
     title: String,
+    image: String,
+    price: Number,
+    category: String,
     description: String,
-    device: String,
   },
   { versionKey: false }
 );

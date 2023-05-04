@@ -1,6 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
-const { userModel } = require("../Models/user.model");
+const { userModel } = require("../../Models/user.model");
 const registerRouter = express.Router();
 
 registerRouter.post("/register", async (req, res) => {
