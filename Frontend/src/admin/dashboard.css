@@ -19,34 +19,3 @@
   .st7{
       width: 25rem;
   }
-  
-  .img1Productsover{
-      opacity: 0.4;
-  }
-  
-  .chart-area{
-      width: 100%;
-      background: url("https://cdn.dribbble.com/users/239075/screenshots/6076217/media/3c1ddca9e932e103aa8df2790925fd79.gif");
-      background-repeat: no-repeat;
-      background-size: cover;
-      color: black;
-      overflow: auto;
-      height: 600px;
-  }
-  .table{
-      color: black;
-      width: 100%;
-      opacity: 0.9;
-     background-color: #8D9EFF;
-     font-weight: 600;
-  }
-  
-  .tableimg{
-       
-      font-size: 11px;
-    
-  }
-  .table td{
-      overflow: hidden;
-      border: 1px solid #98A8F8;
-  }
