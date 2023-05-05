@@ -1,12 +1,11 @@
 var jwt = require("jsonwebtoken");
 
 const auth = (req, res, next) => {
-  const token = req.headers.authorization;
+  const token = req.headers.authentication;
   // console.log(token);
-
   if (token) {
     // const decoded=jwt.verify(token,'shhhhh')
-    jwt.verify(token, "shhhhh", (error, decoded) => {
+    jwt.verify(token, "masai", (error, decoded) => {
       // console.log(decoded);
 
       if (decoded) {
