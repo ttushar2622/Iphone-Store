@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const postSchema = mongoose.Schema(
   {
     title: String,
-    image: String,
+    image: Array,
+    video: String,
     price: Number,
-    category: String,
-    description: String,
+    category: String
   },
   { versionKey: false }
 );
