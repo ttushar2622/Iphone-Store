@@ -21,6 +21,8 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import BagIcon from "./Bag";
+import { NavLink } from "react-router-dom";
+import LoginManage from "../pages/LoginManage";
 
 export default function NavbarTop() {
   const { isOpen, onToggle } = useDisclosure();
@@ -31,8 +33,7 @@ export default function NavbarTop() {
         width: "80%",
         margin: "auto",
         height: "51px",
-      }}
-    >
+      }}>
       <Flex
         position="fixed"
         bg={useColorModeValue("white", "gray.800")}
@@ -44,13 +45,11 @@ export default function NavbarTop() {
         borderStyle={"solid"}
         backgroundColor="rgb(67, 67, 68)"
         borderColor={useColorModeValue("gray.200", "gray.900")}
-        align={"center"}
-      >
+        align={"center"}>
         <Flex
           flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
+          display={{ base: "flex", md: "none" }}>
           <IconButton
             onClick={onToggle}
             icon={
@@ -61,11 +60,12 @@ export default function NavbarTop() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Image
-            src="https://cdn3d.iconscout.com/3d/free/thumb/free-apple-logo-4059223-3364075@0.png"
-            alt="logo"
-            width="1.6rem"
-          ></Image>
+          <NavLink to="/">
+            <Image
+              src="https://cdn3d.iconscout.com/3d/free/thumb/free-apple-logo-4059223-3364075@0.png"
+              alt="logo"
+              width="1.6rem"></Image>
+          </NavLink>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
@@ -127,8 +127,7 @@ const DesktopNav = () => {
                 _hover={{
                   textDecoration: "none",
                   color: "blue.200",
-                }}
-              >
+                }}>
                 {navItem.label}
               </Link>
             </PopoverTrigger>
@@ -140,8 +139,7 @@ const DesktopNav = () => {
                 bg={popoverContentBgColor}
                 p={4}
                 rounded={"xl"}
-                minW={"sm"}
-              >
+                minW={"sm"}>
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -164,15 +162,13 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
-    >
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}>
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
             _groupHover={{ color: "pink.400" }}
-            fontWeight={500}
-          >
+            fontWeight={500}>
             {label}
           </Text>
           <Text fontSize={"sm"}>{subLabel}</Text>
@@ -184,8 +180,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
           justify={"flex-end"}
           align={"center"}
-          flex={1}
-        >
+          flex={1}>
           <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
@@ -198,8 +193,7 @@ const MobileNav = () => {
     <Stack
       bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: "none" }}
-    >
+      display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -220,12 +214,10 @@ const MobileNavItem = ({ label, children, href }) => {
         align={"center"}
         _hover={{
           textDecoration: "none",
-        }}
-      >
+        }}>
         <Text
           fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
+          color={useColorModeValue("gray.600", "gray.200")}>
           {label}
         </Text>
         {children && (
@@ -246,8 +238,7 @@ const MobileNavItem = ({ label, children, href }) => {
           borderLeft={1}
           borderStyle={"solid"}
           borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}
-        >
+          align={"start"}>
           {children &&
             children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
@@ -385,7 +376,8 @@ const NAV_ITEMS = [
     label: "Accessories",
   },
   {
-    label: "Sign in",
+    label: <LoginManage/>,
+ 
   },
   {
     label: <BagIcon />,
