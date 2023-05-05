@@ -1,7 +1,9 @@
+
 import Router from "./AllRoutes/Router";
 import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
+
 
 function App() {
   return (
