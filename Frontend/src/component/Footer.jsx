@@ -38,11 +38,11 @@ const Footer = () => {
               Matrix.com
             </Heading>
             <List lineHeight="2" justifyContent="center">
-              <LinkItem text="Careers" />
-              <LinkItem text="News" />
-              <LinkItem text="Policies" />
-              <LinkItem text="Help" />
-              <LinkItem text="Diversity & Belonging" />
+              <LinkItem text="Store" />
+              <LinkItem text="Mac" />
+              <LinkItem text="iPad" />
+              <LinkItem text="iPhone" />
+              <LinkItem text="Watch" />
             </List>
           </Box>
           <Box
@@ -54,11 +54,11 @@ const Footer = () => {
               mb="0.5rem"
               fontSize="0.875rem"
               fontWeight="600">
-              Discover
+              Account
             </Heading>
             <List lineHeight="2">
               <LinkItem text="Trust &amp; Safety" />
-              <LinkItem text="Travel Credit" />
+              <LinkItem text="Manage Your Apple ID" />
               <LinkItem text="Gift Cards" />
               <LinkItem text="Airbnb Citizen" />
               <LinkItem text="Business Travel" />
@@ -75,7 +75,7 @@ const Footer = () => {
               mb="0.5rem"
               fontSize="0.875rem"
               fontWeight="600">
-              Hosting
+              Apple Store
             </Heading>
             <List lineHeight="2">
               <LinkItem text="Why Host" />
