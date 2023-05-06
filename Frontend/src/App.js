@@ -15,7 +15,7 @@ function App() {
           zIndex: "100",
         }}>
         <NavbarTop />
-        <Navbarbottom />
+        {/* <Navbarbottom /> */}
       </div>{" "}
       <br /> <br /> <br /> <br />
       <Router />
