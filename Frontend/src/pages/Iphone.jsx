@@ -1,4 +1,7 @@
+
 import React from 'react';
+
+
 import { Box, Image, Heading, Text, Button, flexbox } from "@chakra-ui/react";
 
 const Iphone = () => {
@@ -551,4 +554,3 @@ const Iphone = () => {
   );
 };
 
-export default Iphone;
