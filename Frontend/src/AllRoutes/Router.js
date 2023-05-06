@@ -6,6 +6,7 @@ import { Dashboard } from "../admin/dashboard";
 import IpadPage from "../pages/IpadPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Iphone from "../pages/Iphone";
 
 
 
@@ -18,6 +19,7 @@ const Router = () => {
         <Route path="/ipadPage" element={<IpadPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/iphone" element={<Iphone />} />
       </Routes>
     </div>
   );
