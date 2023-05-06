@@ -2,6 +2,9 @@ import Router from "./AllRoutes/Router";
 import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
+import { Iphone } from "./pages/Iphone";
+import Singleproduct from "./pages/singleproduct";
+
 
 function App() {
   return (
@@ -14,12 +17,14 @@ function App() {
           height: "50px",
           zIndex: "100",
         }}>
+
         <NavbarTop />
         {/* <Navbarbottom /> */}
       </div>{" "}
       <br /> <br /> <br /> <br />
-//       <Router />
+      <Router />
       <Footer/>
+
     </div>
   );
 }
