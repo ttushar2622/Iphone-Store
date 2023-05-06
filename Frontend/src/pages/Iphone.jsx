@@ -553,4 +553,5 @@ const Iphone = () => {
     </>
   );
 };
+export default Iphone;
 
