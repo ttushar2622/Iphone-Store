@@ -1,9 +1,7 @@
-
 import Router from "./AllRoutes/Router";
 import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
-
 
 function App() {
   return (
@@ -20,7 +18,7 @@ function App() {
         {/* <Navbarbottom /> */}
       </div>{" "}
       <br /> <br /> <br /> <br />
-      <Router />
+//       <Router />
       <Footer/>
     </div>
   );
