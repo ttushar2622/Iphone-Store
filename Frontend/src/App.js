@@ -18,7 +18,7 @@ function App() {
         {/* <Navbarbottom /> */}
       </div>{" "}
       <br /> <br /> <br /> <br />
-//       <Router />
+      <Router />
       <Footer/>
     </div>
   );
