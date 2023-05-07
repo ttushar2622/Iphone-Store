@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Image, Heading, Text, Button, flexbox } from "@chakra-ui/react";
 
-const Iphone = () => {
+export const  Iphone = () => {
   return (
     <>
       <Box
@@ -545,6 +545,108 @@ const Iphone = () => {
             <br></br>
             <br></br>
            </Box>
+        </Box>
+        <Box width='70%'margin='auto'boxShadow='xs' marginTop="20px" display="flex" alignItems="center" justifyContent="center">
+          <Box marginTop="90px" marginRight="80px" textAlign="center">
+            <Text  fontSize="5xl" fontWeight="semibold">
+            Take your pick of
+            </Text>
+            <Text  fontSize="5xl" fontWeight="semibold">
+            Mother's Day gifts.
+            </Text>
+            <Text fontSize="2xl">
+            So many ways to thank
+            </Text>
+            <Text fontSize="2xl">
+            whoever you call Mom.
+            </Text>
+            <Box
+              display="flex"
+              justifyContent="center"
+              marginTop="15px"
+              alignItems="center"
+            >
+              <Text color="blue.400" marginLeft="20px">
+                <a href="https://www.apple.com/">Shop  the gift guide</a>
+              </Text>
+            </Box>
+          </Box>
+          <Box>
+            <Image
+              width="600px"
+              src="https://www.apple.com/v/ac/includes/campaigns-seasonal/mothers-day-2023/a/images/overview/md23_fampage_banner__cx7zup1dw56q_medium.png"
+            />
+          </Box>
+        </Box>
+        <Box marginTop='90px' textAlign='center'>
+          <Text fontWeight='semibold' fontSize='5xl'>Featured accessories</Text>
+        </Box>
+        <Box width='70%'margin='auto'boxShadow='xs' marginTop="80px" display="flex" alignItems="center" justifyContent="center">
+          <Box marginTop="90px" marginRight="80px" textAlign="center">
+            <Text  fontSize="5xl" fontWeight="semibold">
+            MagSafe
+            </Text>
+            <Text fontSize="2xl">
+            Snap on a magnetic case,
+            </Text>
+            <Text fontSize="2xl">
+            wallet, or both. And get faster
+            </Text>
+            <Text fontSize="2xl">
+            wireless charging.
+            </Text>
+            <Box
+              display="flex"
+              justifyContent="center"
+              marginTop="15px"
+              alignItems="center"
+            >
+              <Text color="blue.400" marginLeft="20px">
+                <a href="https://www.apple.com/">Shop MagSafe accessories</a>
+              </Text>
+            </Box>
+          </Box>
+          <Box>
+            <Image
+              width="600px"
+              src="https://www.apple.com/v/iphone/home/bo/images/overview/accessories/magsafe__bfji5hb1mqsy_medium.jpg"
+            />
+          </Box>
+        </Box>
+        <Box width='80%'margin='auto'boxShadow='xs' marginTop="80px" display="flex" alignItems="center" justifyContent="center">
+        <Box>
+            <Image
+              width="600px"
+              src="https://www.apple.com/v/iphone/home/bo/images/overview/accessories/airtag__b5lt0bcbd9ua_medium.jpg"
+            />
+          </Box>
+          <Box marginTop="90px" marginRight="80px" textAlign="center">
+            <Text  fontSize="5xl" fontWeight="semibold">
+            AirTag
+            </Text>
+            <Text fontSize="2xl">
+            Attach one to your keys. Put another in
+            </Text>
+            <Text fontSize="2xl">
+            your backpack. If they’re misplaced, just
+            </Text>
+            <Text fontSize="2xl">
+            use the Find My app.
+            </Text>
+            <Box
+              display="flex"
+              justifyContent="center"
+              marginTop="15px"
+              alignItems="center"
+            >
+               <Text color="blue.400" marginLeft="20px">
+                <a href="https://www.apple.com/">Buy</a>
+              </Text>
+              <Text color="blue.400" marginLeft="20px">
+                <a href="https://www.apple.com/">Learn More</a>
+              </Text>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </>

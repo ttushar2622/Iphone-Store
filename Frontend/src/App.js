@@ -3,6 +3,7 @@ import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
 
+
 function App() {
   return (
     <div>
@@ -18,8 +19,8 @@ function App() {
         {/* <Navbarbottom /> */}
       </div>{" "}
       <br /> <br /> <br /> <br />
-       <Router />
-      <Footer/>
+      <Router />
+      <Footer />
     </div>
   );
 }
