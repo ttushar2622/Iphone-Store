@@ -9,6 +9,7 @@ import Iphone from "../pages/Iphone";
 import Singleproduct from "../pages/singleproduct";
 import Product from "../pages/Product";
 
+
 const Router = () => {
   return (
     <div>
