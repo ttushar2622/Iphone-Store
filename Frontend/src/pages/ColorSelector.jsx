@@ -7,6 +7,7 @@ function ColorSelector(props) {
   const handleClick = (color) => {
     setSelectedColor(color);
   };
+  
 
   return (
     <Flex alignItems="center">

@@ -6,6 +6,7 @@ import IpadPage from "../pages/IpadPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Iphone from "../pages/Iphone";
+import Singleproduct from "../pages/singleproduct";
 
 
 
@@ -19,6 +20,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/iphone" element={<Iphone />} />
+        <Route path="/singlepage" element={<Singleproduct />} />
       </Routes>
     </div>
   );
