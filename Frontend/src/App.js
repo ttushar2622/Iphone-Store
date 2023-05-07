@@ -1,7 +1,9 @@
 import Router from "./AllRoutes/Router";
+import Foot from "./component/Foot";
 import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
+import Product from "./pages/Product";
 
 
 function App() {
@@ -16,11 +18,11 @@ function App() {
           zIndex: "100",
         }}>
         <NavbarTop />
-        {/* <Navbarbottom /> */}
+        <Navbarbottom />
       </div>{" "}
       <br /> <br /> <br /> <br />
       <Router />
-      <Footer />
+      <Foot/>
     </div>
   );
 }
