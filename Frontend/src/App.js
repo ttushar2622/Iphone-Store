@@ -1,9 +1,9 @@
 import Router from "./AllRoutes/Router";
+import Foot from "./component/Foot";
 import Footer from "./component/Footer";
 import NavbarTop from "./component/NavbarTop";
 import Navbarbottom from "./component/Navbarbottom";
-import { Iphone } from "./pages/Iphone";
-import Singleproduct from "./pages/singleproduct";
+import Product from "./pages/Product";
 
 
 function App() {
@@ -17,14 +17,12 @@ function App() {
           height: "50px",
           zIndex: "100",
         }}>
-
         <NavbarTop />
-        {/* <Navbarbottom /> */}
+        <Navbarbottom />
       </div>{" "}
       <br /> <br /> <br /> <br />
       <Router />
-      <Footer/>
-
+      <Foot/>
     </div>
   );
 }

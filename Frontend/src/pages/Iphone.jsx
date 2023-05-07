@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Image, Heading, Text, Button, flexbox } from "@chakra-ui/react";
+import { Box, Image, Text, Button } from "@chakra-ui/react";
 
 export const  Iphone = () => {
   return (
