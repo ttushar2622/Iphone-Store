@@ -8,6 +8,7 @@ import Register from "../pages/Register";
 import Iphone from "../pages/Iphone";
 import Singleproduct from "../pages/singleproduct";
 import Product from "../pages/Product";
+import IpadSinglePage from "../pages/IpadSinglePage";
 
 
 const Router = () => {
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/singlepage" element={<Singleproduct />} />
         <Route path="/product" element={<Product />} />
         <Route path="*" element={<h1>404 Page Not Found</h1>} />
+        <Route path="/ipadSinglepage/:id" element={<IpadSinglePage/>} />
       </Routes>
     </div>
   );
