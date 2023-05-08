@@ -7,6 +7,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Iphone from "../pages/Iphone";
 import Singleproduct from "../pages/singleproduct";
+import CartPage from "../pages/Cart";
+import PaymentPage from "../pages/Payment";
 
 
 
@@ -20,7 +22,9 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/iphone" element={<Iphone />} />
-        <Route path="/singlepage" element={<Singleproduct />} />
+        <Route path="/cart" element={<CartPage/>} />
+        <Route path="/payment" element={<PaymentPage/>} />
+        <Route path="/singlepage/:id" element={<Singleproduct />} />
       </Routes>
     </div>
   );

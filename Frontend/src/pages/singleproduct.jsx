@@ -1,16 +1,55 @@
-import React from "react";
-import {useState} from  "react"
-import { Box, Image, Heading, Text, Button, flexbox } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { Box, Image, Heading, Text, Button, flexbox, Flex } from "@chakra-ui/react";
 import ImageSlider from "./ImageSlider";
 import ColorSelector from "./ColorSelector";
+import axios from "axios";
+import { Link, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
+
+function Singlepage() {
+  const [data, setData] = useState([]);
+  const { id } = useParams();
+  const [state, setState] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
 
-function Singleproduct() {
-  const images = [
-    "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-starlight?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1655316263356",
-    "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-starlight_AV1?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1655316262818",
-    "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-starlight_AV2?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1655316265464",
-  ];
+  useEffect(() => {
+    axios
+      .get(`https://rende-server-varun.onrender.com/iphone/${id}`)
+      .then((res) => {
+        // console.log(res)
+        setData(res.data);
+        setState(true);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // console.log('data', data)
+
+  const handleAddProduct = () => {
+    const payload = {
+      title: data.title,
+      price: data.price,
+      image: data.image[0],
+      quantity:1,
+    }
+
+    axios.post("https://rende-server-varun.onrender.com/cartItems", payload)
+      .then((res) => {
+        console.log("post", res);
+        setIsClicked(true)
+        Swal.fire(
+          '',
+          'Product added to cart',
+          'success'
+        )
+      })
+      .catch(err => console.log(err))
+  }
+
   const colors = ["red", "white", "black"];
   const [isHighlighted1, setIsHighlighted1] = useState(false);
   const [isHighlighted2, setIsHighlighted2] = useState(false);
@@ -34,6 +73,17 @@ function Singleproduct() {
     setIsHighlighted5(!isHighlighted5);
   };
 
+  if (!state) {
+    return (
+      <h1
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Loading
+      </h1>
+    );
+  }
   return (
     <>
       <Box>
@@ -46,7 +96,7 @@ function Singleproduct() {
             margin="auto"
           >
             <Box>
-              <Text fontSize="5xl">Buy iPhone</Text>
+              <Text fontSize="5xl">{`Buy${data?.title}`}</Text>
               <Text>
                 From $429 or $17.87/mo.per month for 24 mo.months before
                 trade‑in
@@ -66,9 +116,9 @@ function Singleproduct() {
           alignItems="center"
         >
           <Box width="70%">
-            <ImageSlider images={images} />
+            <ImageSlider images={data.image} />
           </Box>
-          <Box marginTop="-50px">
+          <Box marginTop="50px">
             <Box>
               <Text fontSize="3xl">Finish. Pick your favorite</Text>
             </Box>
@@ -91,7 +141,6 @@ function Singleproduct() {
               alignItems="center"
               borderRadius="15px"
               width="80%"
-              
               borderColor="black"
               height="auto"
               padding="20px"
@@ -159,58 +208,100 @@ function Singleproduct() {
                 <Text>for 24 mo.</Text>
               </Box>
             </Box>
+            <Flex justifyContent='space-around'marginLeft='50px'>
+            <Box marginTop="20px" >
+              <Button
+                width="150px"
+                borderRadius="20px"
+                color="white"
+                backgroundColor="blue.400"
+                marginRight="50px"
+                onClick={handleAddProduct}
+                isDisabled={isClicked}
+              >
+                {isClicked? "Item added" : "Add to cart"}
+              </Button>
+            </Box>
+            <Box marginTop="20px">
+              <Button
+                width="150px"
+                borderRadius="20px"
+                color="white"
+                backgroundColor="blue.400"
+                marginRight="50px"
+                float="right"
+              >
+                <Link to={"/cart"}>View Cart</Link>
+              </Button>
+            </Box>
+            </Flex>
           </Box>
         </Box>
-        <Box textAlign='center' marginTop='30px'>
-          <Text fontSize='4xl'>Payment option.Select the one which works for you.</Text>
+        <Box textAlign="center" marginTop="30px">
+          <Text fontSize="4xl">
+            Payment option.Select the one which works for you.
+          </Text>
         </Box>
-        <Box width='70%' margin='auto' height='auto'display='flex'justifyContent='space-between'alignItems='center'>
         <Box
-              margin="auto"
-              marginTop="30px"
-              borderRadius="15px"
-              width="40%"
-              borderColor="black"
-              height="auto"
-              padding="20px"
-              onClick={handleBoxClick4}
-              border={isHighlighted4 ? "2px solid blue" : "1px solid black"}
-              boxShadow={isHighlighted4 ? "0 0 5px blue" : "1px solid black"}
-              p="4"
-              rounded="md"
-              cursor="pointer"
-            >
+          width="70%"
+          margin="auto"
+          height="auto"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Box
+            margin="auto"
+            marginTop="30px"
+            borderRadius="15px"
+            width="40%"
+            borderColor="black"
+            height="auto"
+            padding="20px"
+            onClick={handleBoxClick4}
+            border={isHighlighted4 ? "2px solid blue" : "1px solid black"}
+            boxShadow={isHighlighted4 ? "0 0 5px blue" : "1px solid black"}
+            p="4"
+            rounded="md"
+            cursor="pointer"
+          >
               <Box>
-              <Text fontWeight='semibold'fontSize='2xl'>Buy</Text>
-                <Text>$579.</Text>
-                <Text fontSize='sm'>Pay with Apple Pay or other payment methods.</Text>
+                <Text fontWeight="semibold" fontSize="2xl">
+                  Buy
+                </Text>
+                <Text>{`$ ${data.price}.`}</Text>
+                <Text fontSize="sm">
+                  Pay with Apple Pay or other payment methods.
+                </Text>
               </Box>
+          </Box>
+          <Box
+            margin="auto"
+            marginTop="30px"
+            borderRadius="15px"
+            width="40%"
+            borderColor="black"
+            height="auto"
+            padding="20px"
+            onClick={handleBoxClick5}
+            border={isHighlighted5 ? "2px solid blue" : "1px solid black"}
+            boxShadow={isHighlighted5 ? "0 0 5px blue" : "1px solid black"}
+            p="4"
+            rounded="md"
+            cursor="pointer"
+          >
+            <Box>
+              <Text fontWeight="semibold" fontSize="2xl">
+                Finance
+              </Text>
+              <Text>$24.12/mo.per month</Text>
+              <Text>for 24 mo.</Text>
             </Box>
-            <Box
-              margin="auto"
-              marginTop="30px"
-              borderRadius="15px"
-              width="40%"
-              borderColor="black"
-              height="auto"
-              padding="20px"
-              onClick={handleBoxClick5}
-              border={isHighlighted5 ? "2px solid blue" : "1px solid black"}
-              boxShadow={isHighlighted5 ? "0 0 5px blue" : "1px solid black"}
-              p="4"
-              rounded="md"
-              cursor="pointer"
-            >
-              <Box>
-                <Text fontWeight='semibold'fontSize='2xl'>Finance</Text>
-                <Text>$24.12/mo.per month</Text>
-                <Text>for 24 mo.</Text>
-              </Box>
-            </Box>
+          </Box>
         </Box>
       </Box>
     </>
   );
 }
 
-export default Singleproduct;
+export default Singlepage;
