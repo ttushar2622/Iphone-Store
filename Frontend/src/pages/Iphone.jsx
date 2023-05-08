@@ -1,5 +1,8 @@
 import React from 'react';
-import { Box, Image, Text, Button } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
+import { Box, Image, Heading, Text, Button, flexbox } from "@chakra-ui/react";
+
+
 
 export const  Iphone = () => {
   return (
@@ -289,7 +292,9 @@ export const  Iphone = () => {
             <Text>The ultimate iPhone</Text>
             <br></br>
             <Text>From $999</Text>
+            <Link to={"/singlepage/1"}>
             <Button borderRadius='15px' color='white'backgroundColor='blue.400'>Buy</Button>
+            </Link>
             <Text color="blue.400">
               <a href="https://www.apple.com/">Learn More</a>
             </Text>
@@ -355,7 +360,9 @@ export const  Iphone = () => {
             <Text>As amazing as ever</Text>
             <br></br>
             <Text>From $599</Text>
+            <Link to={"/singlepage/2"}>
             <Button borderRadius='15px' color='white'backgroundColor='blue.400'>Buy</Button>
+            </Link>
             <Text color="blue.400">
               <a href="https://www.apple.com/">Learn More</a>
             </Text>
@@ -421,7 +428,9 @@ export const  Iphone = () => {
             <Text>The ultimate iPhone</Text>
             <br></br>
             <Text>From $999</Text>
+            <Link to={"/singlepage/3"}>
             <Button borderRadius='15px' color='white'backgroundColor='blue.400'>Buy</Button>
+            </Link>
             <Text color="blue.400">
               <a href="https://www.apple.com/">Learn More</a>
             </Text>
@@ -487,7 +496,9 @@ export const  Iphone = () => {
             <Text>Serious power.Serious value</Text>
             <br></br>
             <Text>From $429</Text>
+            <Link to={"/singlepage/4"}>
             <Button borderRadius='15px' color='white'backgroundColor='blue.400'>Buy</Button>
+            </Link>
             <Text color="blue.400">
               <a href="https://www.apple.com/">Learn More</a>
             </Text>
