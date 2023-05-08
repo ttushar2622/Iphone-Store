@@ -1,24 +1,10 @@
-import { Box, Button, Center, Flex, Image, Link, Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import React, { useEffect, useState }  from 'react'
 import IpadCard from '../component/Ipad/IpadCard'
-import axios from 'axios';
 
 
 const IpadPage = () => {
-    const [data, setData] = useState("");
-
-    useEffect(() => {
-        axios.get("https://645863860c15cb14821cc145.mockapi.io/apple/ipad")
-            .then((res) => {
-                // console.log(res)
-                setData(res.data)
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }, [])
-
-
+    
     return (
         <Box>
             <Flex
@@ -68,15 +54,15 @@ const IpadPage = () => {
             <Box
                 w='100%'
                 h='800px'
+                 // display={'flex'}
                 m='auto'
                 mt='10'
-                mb='10'
                 bgColor={'black'}
-                display={'flex'}
                 gap='10'
             >
-                <Box
+                {/* <Box
                     border='2px solid green'
+                    w='30%'
                 >
                     <Text
                         textAlign={'center'}
@@ -110,18 +96,20 @@ const IpadPage = () => {
                         textAlign={'center'}
                         color={'white'}
                     >From $799</Text>
-                </Box>
-                <Box  >
+                </Box> */}
+                <Box 
+                 w='auto'
+                 >
                     <Image
                         boxSize={'100%'}
-                        border={'2px solid red'}
+                        border={'0px solid red'}
                         src='https://www.apple.com/v/ipad-pro/al/images/overview/hero/hero_combo__fcqcc3hbzjyy_large.jpg'
                     />
                 </Box>
 
             </Box>
             {/* gsgsgh */}
-            <Box marginTop='90px' textAlign='center'>
+            <Box marginTop='200' textAlign='center'>
                 <Text fontWeight='700' fontSize='40'>Which iPad is right for you?</Text>
             </Box>
             <Box width='70%' margin='auto' display='flex' justifyContent='space-between' alignItems='center'>
