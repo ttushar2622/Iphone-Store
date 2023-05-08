@@ -33,7 +33,7 @@ const IpadCard = ({
             <Text>{description}</Text>
             <br></br>
             <Text>{price}</Text>
-            <Link to={`/singlepage/${id}`} >
+            <Link to={`/ipadSinglepage/${id}`} >
             <Button
                 borderRadius='15px'
                 color='white'
