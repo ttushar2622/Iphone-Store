@@ -10,9 +10,9 @@ import Singleproduct from "../pages/singleproduct";
 import CartPage from "../pages/Cart";
 import PaymentPage from "../pages/Payment";
 import Product from "../pages/Product";
+
+
 import IpadSinglePage from "../pages/IpadSinglePage";
-
-
 
 const Router = () => {
   return (
@@ -28,8 +28,11 @@ const Router = () => {
         <Route path="/payment" element={<PaymentPage/>} />
         <Route path="/singlepage/:id" element={<Singleproduct />} />
         <Route path="/product" element={<Product />} />
-        <Route path="*" element={<h1>404 Page Not Found</h1>} />
+        <Route path="*" element={<h1>404 Page Not Found</h1>} /
+
+
         <Route path="/ipadSinglepage/:id" element={<IpadSinglePage/>} />
+
       </Routes>
     </div>
   );
