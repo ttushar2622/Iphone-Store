@@ -52,11 +52,12 @@ const CartPage = () => {
     axios.delete(`https://rende-server-varun.onrender.com/cartItems/${id}`)
   };
 
+  const totalProds = products.length;
   return (
     <Box w="100%" maxW="960px" mx="auto" py="8">
       <Flex alignItems="center">
         {/* <Icon as={FaShoppingCart} boxSize="32px" mr="2" /> */}
-        <Heading>Review Your Cart</Heading>
+        <Heading>Review Your Cart : {totalProds} </Heading>
       </Flex>
       <Box mt="8">
         <Box borderBottomWidth="1px" pb="4">
