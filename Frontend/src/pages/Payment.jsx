@@ -1,8 +1,4 @@
 import {
-    Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
   Button,
   Flex,
@@ -17,6 +13,7 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const PaymentPage = () => {
@@ -24,14 +21,13 @@ const PaymentPage = () => {
   const totalPrice = JSON.parse(localStorage.getItem("BagTotal") || 0);
   const [address, setaddress] = useState("");
   const [showPayBtn, setShowPayBtn] = useState(false);
-  const [alert,setAlert]=useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
       .get(`https://rende-server-varun.onrender.com/cartItems`)
       .then((res) => {
-        // console.log(res)
+        console.log(res)
         setcartItems(res.data);
       })
       .catch((err) => {
@@ -39,12 +35,8 @@ const PaymentPage = () => {
       });
   }, []);
 
-  // const handleChange =(e)=>{
-  //     const {name, value} = e.target;
-  //     setaddress(prev => {
-  //         return {...prev, [name] : value}
-  //     })
-  // }
+  console.log("cartItems", cartItems);
+ 
 
   const handleAddress = () => {
     // e.preventDefault();
@@ -53,35 +45,35 @@ const PaymentPage = () => {
     // alert("Adress added")
   };
 
-  const showAlert=()=>{
-    setAlert(true)
+  const handleOrderPlaced=()=>{
+
+    // for post the orders
+    cartItems.length > 0 &&
+    cartItems.forEach((el) => [
+      axios.post(
+        `https://rende-server-varun.onrender.com/orders`, el
+      ),
+    ]);
+
+    // for empty the cart
+    cartItems.length > 0 &&
+    cartItems.forEach((el) => [
+      axios.delete(
+        `https://rende-server-varun.onrender.com/cartItems/${el.id}`
+      ),
+    ]);
+
+    Swal.fire(
+      '',
+      'Order Placed Successfully',
+      'success'
+    )
+
+   
     setTimeout(()=>{
-        setAlert(false);
+        
         navigate("/");
-    },3000)
-  }
-
-
-
-  if(alert==true){
-    return (<Alert
-    status='success'
-    variant='subtle'
-    flexDirection='column'
-    alignItems='center'
-    justifyContent='center'
-    textAlign='center'
-    height='200px'
-    marginBottom='50px'
-  >
-    <AlertIcon boxSize='40px' mr={0} />
-    <AlertTitle mt={4} mb={1} fontSize='lg'>
-      Order Placed Successfully
-    </AlertTitle>
-    <AlertDescription maxWidth='sm'>
-      Thank you for shopping.
-    </AlertDescription>
-  </Alert>)
+    },5000)
   }
 
 
@@ -161,7 +153,7 @@ const PaymentPage = () => {
             <Button 
             colorScheme="blue" size="lg" isFullWidth
             isDisabled={!showPayBtn}
-            onClick={showAlert}
+            onClick={handleOrderPlaced}
             >
               Pay Now
             </Button>
