@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   Container,
   FormControl,
@@ -16,11 +16,64 @@ import {
   Link,
   Box,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const Login = () => {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
+  const navigate= useNavigate();
+
+  let email = useRef(null);
+  let password = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let data = {
+      email: email.current.value,
+      password: password.current.value,
+    };
+    // console.log(data);
+
+    if (!data.email || !data.password) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please Fill All The Details!",
+      });
+      return;
+    }
+    try {
+      axios
+        .post("https://sore-nightshirt-slug.cyclic.app/apple/admin/login", data)
+        .then((res) => {
+          console.log(res, res.status);
+          if (res.status === 200) {
+            Swal.fire({
+              icon: "success",
+              title: "",
+              text: "User Logged In Successfully!",
+            });
+            setTimeout(() => {
+              navigate("/")
+            }, 2500);
+          } else {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Something Went Wrong!",
+            });
+          }
+        });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something Went Wrong!",
+      });
+    }
+  };
 
   return (
     <Container
@@ -49,12 +102,12 @@ const Login = () => {
             <VStack spacing={4} w="100%">
               <FormControl id="email">
                 <FormLabel>Email</FormLabel>
-                <Input rounded="md" type="email" />
+                <Input rounded="md" type="email"  ref={email}/>
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
                 <InputGroup size="md">
-                  <Input rounded="md" type={show ? "text" : "password"} />
+                  <Input rounded="md" type={show ? "text" : "password"} ref={password} />
                   <InputRightElement width="4.5rem">
                     <Button
                       h="1.75rem"
@@ -81,6 +134,7 @@ const Login = () => {
                 </Link>
               </Stack>
               <Button
+                onClick={handleSubmit}
                 bg="blue.300"
                 color="white"
                 _hover={{
@@ -91,9 +145,7 @@ const Login = () => {
                 Sign in
               </Button>
 
-              <Box
-              
-              >
+              <Box>
                 <NavLink
                   to="/register"
                   style={{
