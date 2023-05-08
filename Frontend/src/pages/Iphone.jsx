@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Image, Heading, Text, Button, flexbox } from "@chakra-ui/react";
 
+
+
 export const  Iphone = () => {
   return (
     <>

@@ -7,9 +7,13 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Iphone from "../pages/Iphone";
 import Singleproduct from "../pages/singleproduct";
+<<<<<<< HEAD
 import CartPage from "../pages/Cart";
 import PaymentPage from "../pages/Payment";
 
+=======
+import Product from "../pages/Product";
+>>>>>>> 3fdd0a8471e9daffbf80ce08059a93d40ddf9f0e
 
 
 const Router = () => {
@@ -22,9 +26,15 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/iphone" element={<Iphone />} />
+<<<<<<< HEAD
         <Route path="/cart" element={<CartPage/>} />
         <Route path="/payment" element={<PaymentPage/>} />
         <Route path="/singlepage/:id" element={<Singleproduct />} />
+=======
+        <Route path="/singlepage" element={<Singleproduct />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="*" element={<h1>404 Page Not Found</h1>} />
+>>>>>>> 3fdd0a8471e9daffbf80ce08059a93d40ddf9f0e
       </Routes>
     </div>
   );

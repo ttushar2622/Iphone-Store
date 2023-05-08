@@ -1,0 +1,88 @@
+.product-mac,
+.product-iphone,
+.product-watch,
+.product-ipad {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  cursor: pointer;
+}
+.product-mac h2,
+.product-iphone h2,
+.product-watch h2,
+.product-ipad h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.container {
+  width: 1070px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+.grid-product {
+  background: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+.grid-product:hover {
+  background: #e1e1e1;
+}
+.grid-product img {
+  width: 300px;
+}
+.grid-detail {
+  margin: 20px 0;
+  text-align: center;
+}
+.grid-detail p:last-child {
+  transition: .5s;
+  margin-top: 10px;
+}
+.grid-product:hover > .grid-detail p:last-child {
+  color: #3498db;
+}
+
+/*-------*/
+.grid-full {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.grid-product-full {
+  background: #f1f1f1;
+  grid-column: span 3;
+  display: flex;
+  position: relative;
+}
+.grid-detail-sum {
+  position: absolute;
+  top: 35%;
+  right: 12%;
+  text-align: center;
+}
+.grid-detail-sum h2 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+.grid-detail-sum p {
+  margin: 20px 0;
+}
+.grid-detail-sum a {
+  color: #3498db;
+}
+.grid-detail-sum a:hover {
+  text-decoration: underline;
+}
