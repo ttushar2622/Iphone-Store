@@ -9,61 +9,56 @@ import { useContext } from "react"
 import { Authcontext } from "../authcontext"
 
 
-export const Admin=()=>{
+export const AdminRegister=()=>{
+  const [name,setName]=useState("");
+  const [gender,setGender]=useState("");
     const [email,setEmail]=useState("");
     const [password,setpassword]=useState("");
 
 const {enter,toggle}=useContext(Authcontext)
-
 
    const nav=useNavigate()
 
    const handelSubmit=(e)=>{
     e.preventDefault()
     const credentials={
+      name,
+      gender,
       email,
       password
     }
-
-    fetch("https://sore-nightshirt-slug.cyclic.app/apple/admin/login",{
+  
+    fetch("https://sore-nightshirt-slug.cyclic.app/apple/admin/register",{
       method:"POST",
       headers:{
-       "content-type":"application/json"
+        "Content-type":"application/json"
       },
       body:JSON.stringify(credentials)
-    }).then((res)=>res.json())
-    .then((res)=>{
-      console.log(res)
-      localStorage.setItem("tokenauth",res.token)
-      // nav("/dashboard")
-      if(res.token){
-        nav("/dashboard")
-        toggle(true)
-      }
     })
+    .then((res)=>res.json())
+    .then((res)=>console.log(res))
     .catch((err)=>{
-      console.log("Wrong")
-      alert("Wrong Credentials")})
+      alert("New Admin User Has Been Registered")
+      nav("/dashboard")
+      console.log("check")})
   }
   return(
     <div className="hey">
    <div className="wrapper">
-    <header>Login Form</header>
+    <header>SignUp Form</header>
     <form  onSubmit={handelSubmit}>
+       
       <div className="field email">
+         
         <div className="input-area">
-          <input type="text" placeholder="Email Address" value={email} onChange={(e)=>setEmail(e.target.value)} required />
-        
+       <input type="text" placeholder="Name" value={name} onChange={(e)=>setName(e.target.value)} required />
+       <input type="text" placeholder="Gender"  value={gender} onChange={(e)=>setGender(e.target.value)} required  />
+         <input type="text" placeholder="Email Address" value={email} onChange={(e)=>setEmail(e.target.value)} required />
+         <input type="password" placeholder="Password"  value={password} onChange={(e)=>setpassword(e.target.value)} required  />
+         
         </div>
-        <div className="error error-txt">Email can't be blank</div>
       </div>
-      <div className="field password">
-        <div className="input-area">
-          <input type="password" placeholder="Password"  value={password} onChange={(e)=>setpassword(e.target.value)} required  />
-        
-        </div>
-        <div className="error error-txt">Password can't be blank</div>
-      </div>
+  
       <div className="pass-txt">Forgot password?</div>
       <input type="submit" value="Login" />
     </form>
