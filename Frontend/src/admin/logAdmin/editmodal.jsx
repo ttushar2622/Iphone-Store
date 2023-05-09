@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom"
 import { Authcontext } from "../authcontext"
 import { MdModeEdit } from "react-icons/md";
 import {useToast } from "@chakra-ui/react"
-
+import Swal from "sweetalert2"
 function Order(i) {
   console.log(i)
   const toast=useToast()
@@ -54,15 +54,18 @@ function Order(i) {
 
     const HandelSubmit=(e)=>{
          e.preventDefault()
-        axios.patch(`https://sore-nightshirt-slug.cyclic.app/apple//update/${_id}`,state,{headers:{
+        axios.patch(`https://sore-nightshirt-slug.cyclic.app/apple/admin/update/${_id}`,state,{headers:{
           authentication: token,
           
         }}).then((res)=>{
         if(res){
-          handeltoast()
-          alert("Item has been Edited")
-        }else{
-          toast()
+          onClose()
+          Swal.fire(
+            '',
+            'Item has been Edited',
+            'success'
+          )
+         
         }
       }).catch((err)=>{
        console.log(err)

@@ -26,10 +26,7 @@ export const Dashboard = () => {
 
   let nav = useNavigate();
   let [data, setData] = useState([]);
-  useEffect(() => {
-    handelData();
-    Orderss()
-  }, [render]);
+
   const handelData = () => {
     axios
       .get(`https://sore-nightshirt-slug.cyclic.app/apple/admin`, {
@@ -44,17 +41,7 @@ export const Dashboard = () => {
       .catch((err) => err);
   };
 
-  const Orderss = () => {
-    axios
-      .get(`https://rende-server-varun.onrender.com/orders`, {
-        
-      })
-      .then((res) => {
-        setData(res.data);
-        console.log(res,"check")
-      })
-      .catch((err) => console.log(err));
-  };
+ 
 
 
   const handelDelete = (id) => {
@@ -69,12 +56,10 @@ export const Dashboard = () => {
       })
   };
 
-   const handelEdit=(i)=>{
    
-   }
-   
-
-
+   useEffect(() => {
+    handelData();
+  }, [render]);
 
   return (
     <>

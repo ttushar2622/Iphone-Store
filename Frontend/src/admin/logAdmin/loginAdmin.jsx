@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom"
 import "./admin.css"
 import { useContext } from "react"
 import { Authcontext } from "../authcontext"
+import Swal from "sweetalert2"
 
 
 export const Admin=()=>{
@@ -35,8 +36,12 @@ const {enter,toggle}=useContext(Authcontext)
     .then((res)=>{
       console.log(res)
       localStorage.setItem("tokenauth",res.token)
-      // nav("/dashboard")
       if(res.token){
+        Swal.fire(
+          '',
+          'Log In Successfull',
+          'success'
+        )
         nav("/dashboard")
         toggle(true)
       }

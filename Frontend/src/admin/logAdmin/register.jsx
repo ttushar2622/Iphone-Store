@@ -1,12 +1,10 @@
 import {  useState } from "react"
-// import axios, { formToJSON } from "axios"
-// import { useNavigate } from "react-router-dom"
-
 import axios, { formToJSON } from "axios"
 import { useNavigate } from "react-router-dom"
 import "./admin.css"
 import { useContext } from "react"
 import { Authcontext } from "../authcontext"
+import Swal from "sweetalert2"
 
 
 export const AdminRegister=()=>{
@@ -38,7 +36,11 @@ const {enter,toggle}=useContext(Authcontext)
     .then((res)=>res.json())
     .then((res)=>console.log(res))
     .catch((err)=>{
-      alert("New Admin User Has Been Registered")
+      Swal.fire(
+        '',
+        'Registration Successfull',
+        'success'
+      )
       nav("/dashboard")
       console.log("check")})
   }
