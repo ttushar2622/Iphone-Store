@@ -6,27 +6,49 @@ import axios, { formToJSON } from "axios"
 import { useNavigate } from "react-router-dom"
 import "./admin.css"
 import { useContext } from "react"
-import { AuthContext } from "./useContext/AuthContext"
+import { Authcontext } from "../authcontext"
+import Swal from "sweetalert2"
 
 
 export const Admin=()=>{
-    const [form,setForm]=useState("");
-    const [pass,setpass]=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setpassword]=useState("");
 
-const Auth=useContext(AuthContext)
+const {enter,toggle}=useContext(Authcontext)
+
 
    const nav=useNavigate()
 
    const handelSubmit=(e)=>{
     e.preventDefault()
-    if(form==="" ||pass===""){
-      alert("Please fill all credentials")
+    const credentials={
+      email,
+      password
     }
-    else if(form==="eve.holt@reqres.in"||pass===123456){
-        alert("SIGNED In SUCCESSFULLY");
-        Auth.setState(true);
-        nav("/AdminDashboard")
-   }
+
+    fetch("https://sore-nightshirt-slug.cyclic.app/apple/admin/login",{
+      method:"POST",
+      headers:{
+       "content-type":"application/json"
+      },
+      body:JSON.stringify(credentials)
+    }).then((res)=>res.json())
+    .then((res)=>{
+      console.log(res)
+      localStorage.setItem("tokenauth",res.token)
+      if(res.token){
+        Swal.fire(
+          '',
+          'Log In Successfull',
+          'success'
+        )
+        nav("/dashboard")
+        toggle(true)
+      }
+    })
+    .catch((err)=>{
+      console.log("Wrong")
+      alert("Wrong Credentials")})
   }
   return(
     <div className="hey">
@@ -35,14 +57,14 @@ const Auth=useContext(AuthContext)
     <form  onSubmit={handelSubmit}>
       <div className="field email">
         <div className="input-area">
-          <input type="text" placeholder="Email Address" value={form} onChange={(e)=>setForm(e.target.value)} required />
+          <input type="text" placeholder="Email Address" value={email} onChange={(e)=>setEmail(e.target.value)} required />
         
         </div>
         <div className="error error-txt">Email can't be blank</div>
       </div>
       <div className="field password">
         <div className="input-area">
-          <input type="password" placeholder="Password"  value={pass} onChange={(e)=>setpass(e.target.value)} required  />
+          <input type="password" placeholder="Password"  value={password} onChange={(e)=>setpassword(e.target.value)} required  />
         
         </div>
         <div className="error error-txt">Password can't be blank</div>
@@ -50,7 +72,7 @@ const Auth=useContext(AuthContext)
       <div className="pass-txt">Forgot password?</div>
       <input type="submit" value="Login" />
     </form>
-    <div className="sign-txt">Not yet member? Signup now</div>
+    <div className="sign-txt">Not yet member?Go Signup now</div>
   </div>
 
       
