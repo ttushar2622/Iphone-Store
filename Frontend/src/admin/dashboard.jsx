@@ -59,7 +59,7 @@ export const Dashboard = () => {
    
    useEffect(() => {
     handelData();
-  }, [render]);
+  }, [data]);
 
   return (
     <>
@@ -76,12 +76,12 @@ export const Dashboard = () => {
           
         >
           <Box  fontSize={["10px","13px","13px","20px"]} cursor={"pointer"}>
-            <Link href="/dashboard"> Dash</Link>
+            <NavLink href="/dashboard"> Dash</NavLink>
           </Box>
           <hr />
           <Box fontSize={["10px","13px","13px","20px"]}  cursor={"pointer"}>
                {/* <NavLink to="/dashboard/admin/add">ADD</NavLink> */}
-            {   enter?  <AddProduct/>:"Login to Add"}
+            {   enter?  <AddProduct ren={setRender}/>:"Login to Add"}
           </Box>
           {/* <hr />
           <Box fontSize={["10px","13px","13px","20px"]} cursor={"pointer"}>
@@ -89,12 +89,12 @@ export const Dashboard = () => {
           </Box> */}
           <hr />
           <Box fontSize={["10px","13px","13px","20px"]} cursor={"pointer"}>
-          {enter?"Logged In":<Link href="/dashboard/admin/login">LogIn</Link>}
+          {enter?"Logged In":<NavLink href="/dashboard/admin/login">LogIn</NavLink>}
           {/* <Link href="/dashboard/admin/login">LogIn</Link> */}
           </Box>
           <hr />
           <Box fontSize={["10px","13px","13px","20px"]} cursor={"pointer"}>
-            <Link href="/dashboard/admin/register">Register</Link>
+            <NavLink to="/dashboard/admin/register">Register</NavLink>
           </Box>
         </Stack>
         

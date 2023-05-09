@@ -1,6 +1,6 @@
 import { Box, Button, input, Modal, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react"
 import axios from "axios"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import {
   Alert,
   AlertIcon,
@@ -9,11 +9,12 @@ import {
 } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom"
 import { Authcontext } from "../authcontext"
+import Swal from "sweetalert2"
 
-function AddProduct() {
+function AddProduct(ren) {
   let { enter, toggle } = useContext(Authcontext);
   console.log(enter)
-
+  let [rena,setRen]=useState(false)
     const { isOpen, onOpen, onClose } = useDisclosure()
     let [state,setState]=useState({
       title:"",
@@ -22,6 +23,8 @@ function AddProduct() {
       price:0,
       category:""
     })
+
+
 
     let nav=useNavigate()
     let token = localStorage.getItem("tokenauth");
@@ -38,9 +41,16 @@ function AddProduct() {
         data: state
       }).then((res)=>{
         if(res){
-          alert(
-            nav("/dashboard")
+          onClose()
+          Swal.fire(
+            '',
+            'Added Successfull',
+            'success'
           )
+          setRen(!rena)
+          ren(true)
+            nav("/dashboard")
+          
         
         }
       });
