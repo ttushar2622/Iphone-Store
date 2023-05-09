@@ -6,20 +6,14 @@ import IpadPage from "../pages/IpadPage";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Iphone from "../pages/Iphone";
-
 import { Admin } from "../admin/logAdmin/loginAdmin";
 import { AdminRegister } from "../admin/logAdmin/register";
 import AddProduct from "../admin/logAdmin/Addprod";
-
 import Singleproduct from "../pages/singleproduct";
 import CartPage from "../pages/Cart";
-import PaymentPage from "../pages/Payment";
 import Product from "../pages/Product";
-
-
-
-
 import IpadSinglePage from "../pages/IpadSinglePage";
+import PaymentPage from "../pages/payment";
 
 const Router = () => {
   return (
@@ -31,18 +25,15 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/iphone" element={<Iphone />} />
-        <Route path='/dashboard/admin/login' element={<Admin/>}/>
-        <Route path='/dashboard/admin/Register' element={<AdminRegister/>}/>
-        <Route path='/dashboard/admin/add' element={<AddProduct/>}/>
-        <Route path="/cart" element={<CartPage/>} />
-        <Route path="/payment" element={<PaymentPage/>} />
+        <Route path="/dashboard/admin/login" element={<Admin />} />
+        <Route path="/dashboard/admin/Register" element={<AdminRegister />} />
+        <Route path="/dashboard/admin/add" element={<AddProduct />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/payment" element={<PaymentPage />} />
         <Route path="/singlepage/:id" element={<Singleproduct />} />
         <Route path="/product" element={<Product />} />
-        <Route path="*" element={<h1>404 Page Not Found</h1>}/>
-        <Route path="/ipadSinglepage/:id" element={<IpadSinglePage/>}/>
-        
-
-
+        <Route path="*" element={<h1>404 Page Not Found</h1>} />
+        <Route path="/ipadSinglepage/:id" element={<IpadSinglePage />} />
       </Routes>
     </div>
   );

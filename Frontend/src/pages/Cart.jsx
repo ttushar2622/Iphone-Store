@@ -94,7 +94,7 @@ const CartPage = () => {
           </Flex>
         </Box>
         <Box mt="8">
-          <Link  to={"/payment"}><Button colorScheme="blue">Checkout</Button></Link>
+          <Link  to="/payment"><Button colorScheme="blue">Checkout</Button></Link>
         </Box>
       </Box>
     </Box>

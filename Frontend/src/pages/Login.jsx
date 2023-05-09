@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import {
   Container,
   FormControl,
@@ -19,8 +19,12 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Authcontext } from "../admin/authcontext";
+
 
 const Login = () => {
+ let {setAuth}=useContext(Authcontext)
+
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
   const navigate= useNavigate();
@@ -56,6 +60,7 @@ const Login = () => {
               text: "User Logged In Successfully!",
             });
             setTimeout(() => {
+              setAuth(true)
               navigate("/")
             }, 2500);
           } else {

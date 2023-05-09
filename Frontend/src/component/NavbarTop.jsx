@@ -255,11 +255,9 @@ const NAV_ITEMS = [
   {
     label: "store",
     href: "/product",
-    
   },
   {
     label: "Mac",
-    
   },
   {
     label: "iPad",
@@ -277,7 +275,6 @@ const NAV_ITEMS = [
   },
   {
     label: "TV & Home",
-
   },
   {
     label: "Entertainment",
@@ -286,8 +283,7 @@ const NAV_ITEMS = [
     label: "Accessories",
   },
   {
-    label: <LoginManage/>,
- 
+    label: <LoginManage />,
   },
   {
     label: <BagIcon />,

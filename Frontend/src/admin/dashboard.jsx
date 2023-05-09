@@ -89,8 +89,7 @@ export const Dashboard = () => {
           </Box> */}
           <hr />
           <Box fontSize={["10px","13px","13px","20px"]} cursor={"pointer"}>
-          {enter?"Logged In":<NavLink href="/dashboard/admin/login">LogIn</NavLink>}
-          {/* <Link href="/dashboard/admin/login">LogIn</Link> */}
+          {enter?"Logged In":<NavLink to="/dashboard/admin/login">LogIn</NavLink>}
           </Box>
           <hr />
           <Box fontSize={["10px","13px","13px","20px"]} cursor={"pointer"}>

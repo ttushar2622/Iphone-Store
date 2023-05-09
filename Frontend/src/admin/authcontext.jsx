@@ -6,6 +6,7 @@ import { createContext } from "react";
 export const Authcontext=createContext()
 
 export const AuthcontextProvider = ({children}) => {
+   let [auth,setAuth]=useState(false)
     let [enter,setEnter]=useState(false)
     
     const toggle=(n)=>{
@@ -15,7 +16,7 @@ export const AuthcontextProvider = ({children}) => {
 
   return (
     <div>
-        <Authcontext.Provider value={{enter,toggle}}>
+        <Authcontext.Provider value={{enter,toggle,auth,setAuth}}>
         {children}
         </Authcontext.Provider>
     </div>
