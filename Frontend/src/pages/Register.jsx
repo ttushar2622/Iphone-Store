@@ -15,8 +15,60 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const Register = () => {
+  let name = React.useRef(null);
+  let email = React.useRef(null);
+  let gender = "male";
+  let password = React.useRef(null);
+  let access = "true";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let data = {
+      name: name.current.value,
+      email: email.current.value,
+      gender,
+      password: password.current.value,
+      access,
+    };
+    console.log(data);
+    //  https://sore-nightshirt-slug.cyclic.app/apple/admin/register
+
+    if (!data.name || !data.email || !data.password) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please Fill All The Details!",
+      });
+      return;
+    }
+    try {
+      axios
+        .post(
+          "https://sore-nightshirt-slug.cyclic.app/apple/admin/register",
+          data
+        )
+        .then((res) => {
+          console.log(res, res.status);
+          if (res.status === 200) {
+            Swal.fire({
+              icon: "success",
+              title: "",
+              text: "User Registered Successfully!",
+            });
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
+    name.current.value = "";
+    email.current.value = "";
+    password.current.value = "";
+  };
+
   return (
     <Stack
       minH="100vh"
@@ -35,7 +87,9 @@ const Register = () => {
       <Flex p={8} flex={1} align="center" justify="center">
         <Stack spacing={4}>
           <Stack align="center">
-            <Heading color={"white"} fontSize="2xl">Register Here</Heading>
+            <Heading color={"white"} fontSize="2xl">
+              Register Here
+            </Heading>
           </Stack>
           <VStack
             as="form"
@@ -47,17 +101,32 @@ const Register = () => {
             boxShadow="lg"
             p={{ base: 5, sm: 10 }}>
             <VStack spacing={4} w="100%">
-            <FormControl id="email">
+              <FormControl id="email">
                 <FormLabel>UserName</FormLabel>
-                <Input rounded="md" type="text" placeholder="Entre your user name here"/>
+                <Input
+                  rounded="md"
+                  type="text"
+                  placeholder="Entre your user name here"
+                  ref={name}
+                />
               </FormControl>
               <FormControl id="email">
                 <FormLabel>Email</FormLabel>
-                <Input rounded="md" type="email" placeholder="Entre your user email here" />
+                <Input
+                  rounded="md"
+                  type="email"
+                  placeholder="Entre your user email here"
+                  ref={email}
+                />
               </FormControl>
               <FormControl id="password">
                 <FormLabel>Password</FormLabel>
-                <Input rounded="md" type="password"  placeholder="Entre your user password here" />
+                <Input
+                  rounded="md"
+                  type="password"
+                  placeholder="Entre your user password here"
+                  ref={password}
+                />
               </FormControl>
             </VStack>
             <VStack w="100%">
@@ -70,6 +139,7 @@ const Register = () => {
                 </Link>
               </Stack>
               <Button
+                onClick={handleSubmit}
                 bg="blue.500"
                 color="white"
                 _hover={{
@@ -79,9 +149,7 @@ const Register = () => {
                 w="100%">
                 Register
               </Button>
-              <Box
-              
-              >
+              <Box>
                 <NavLink
                   to="/login"
                   style={{

@@ -1,7 +1,10 @@
-import { Box, Button, Center, Flex, Image, Link, Text } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex, Image, Text } from '@chakra-ui/react'
+import React, { useEffect, useState }  from 'react'
 import IpadCard from '../component/Ipad/IpadCard'
+
+
 const IpadPage = () => {
+    
     return (
         <Box>
             <Flex
@@ -51,68 +54,71 @@ const IpadPage = () => {
             <Box
                 w='100%'
                 h='800px'
+                 // display={'flex'}
                 m='auto'
                 mt='10'
-                mb='10'
                 bgColor={'black'}
-                display={'flex'}
                 gap='10'
             >
-                    <Box
-                        border='2px solid green'
+                {/* <Box
+                    border='2px solid green'
+                    w='30%'
+                >
+                    <Text
+                        textAlign={'center'}
+                        color={'red'}
+                        fontSize={12}
+                    >New
+                    </Text>
+                    <Text
+                        textAlign={'center'}
+                        color={'white'}
+                        fontSize={50}
+                        fontWeight={'700'}
+                    >iPad Pro
+                    </Text>
+                    <Flex
+                        gap={'4'}
                     >
                         <Text
                             textAlign={'center'}
-                            color={'red'}
-                            fontSize={12}
-                        >New
-                        </Text>
-                        <Text
-                            textAlign={'center'}
                             color={'white'}
-                            fontSize={50}
-                            fontWeight={'700'}
-                        >iPad Pro
+                            fontSize={23}
+                            fontWeight={'600'}
+                        >Supercharged byM2
                         </Text>
-                        <Flex
-                            gap={'4'}
-                        >
-                            <Text
-                                textAlign={'center'}
-                                color={'white'}
-                                fontSize={23}
-                                fontWeight={'600'}
-                            >Supercharged byM2
-                            </Text>
-                            <Image
-                                boxSize={'45px'}
-                                src='https://www.apple.com/v/ipad-pro/al/images/overview/hero/m2_logo__90ungfqgnsiu_large.png'
-                            />
-                        </Flex>
-                        <Text
-                            textAlign={'center'}
-                            color={'white'}
-                        >From $799</Text>
-                    </Box>
-                    <Box  >
                         <Image
-                            boxSize={'100%'}
-                            border={'2px solid red'}
-                            src='https://www.apple.com/v/ipad-pro/al/images/overview/hero/hero_combo__fcqcc3hbzjyy_large.jpg'
+                            boxSize={'45px'}
+                            src='https://www.apple.com/v/ipad-pro/al/images/overview/hero/m2_logo__90ungfqgnsiu_large.png'
                         />
-                    </Box>
-        
+                    </Flex>
+                    <Text
+                        textAlign={'center'}
+                        color={'white'}
+                    >From $799</Text>
+                </Box> */}
+                <Box 
+                 w='auto'
+                 >
+                    <Image
+                        boxSize={'100%'}
+                        border={'0px solid red'}
+                        src='https://www.apple.com/v/ipad-pro/al/images/overview/hero/hero_combo__fcqcc3hbzjyy_large.jpg'
+                    />
+                </Box>
+
             </Box>
             {/* gsgsgh */}
-            <Box marginTop='90px' textAlign='center'>
+            <Box marginTop='200' textAlign='center'>
                 <Text fontWeight='700' fontSize='40'>Which iPad is right for you?</Text>
             </Box>
             <Box width='70%' margin='auto' display='flex' justifyContent='space-between' alignItems='center'>
 
                 <IpadCard key={1}
+                    id={1}
                     image={"https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_pro__erf9x8mw04sy_small_2x.png"}
                     dotSrc={'https://www.apple.com/v/iphone/home/bo/images/overview/compare/swatch_iphone_14_pro__c2bl98e0li4i_medium.png'}
-                    name={"ipad"}
+                    name={"iPad Pro"}
                     description={'descrippjhdgb'}
                     price={"from $900"}
                     size={'12.9″ or 11″'}
@@ -144,6 +150,7 @@ const IpadPage = () => {
                 />
 
                 <IpadCard key={2}
+                    id={2}
                     image={"https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_air__bxjv33pk6nte_large.png"}
                     dotSrc={'https://www.apple.com/v/iphone/home/bo/images/overview/compare/swatch_iphone_14_pro__c2bl98e0li4i_medium.png'}
                     name={"ipad"}
@@ -178,6 +185,7 @@ const IpadPage = () => {
                 />
 
                 <IpadCard key={3}
+                    id={3}
                     image={"https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_10_9__f7p2wja0gwuy_large.png"}
                     dotSrc={'https://www.apple.com/v/iphone/home/bo/images/overview/compare/swatch_iphone_14_pro__c2bl98e0li4i_medium.png'}
                     name={"ipad"}
@@ -212,6 +220,7 @@ const IpadPage = () => {
                 />
 
                 <IpadCard key={4}
+                    id={4}
                     image={"https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_10_2__fwgwy7jydtea_large.png"}
                     dotSrc={'https://www.apple.com/v/iphone/home/bo/images/overview/compare/swatch_iphone_14_pro__c2bl98e0li4i_medium.png'}
                     name={"ipad"}
@@ -246,6 +255,7 @@ const IpadPage = () => {
                 />
 
                 <IpadCard key={5}
+                    id={5}
                     image={"https://www.apple.com/v/ipad/home/cd/images/overview/compare_ipad_mini__czcsk9ukpeie_large.png"}
                     dotSrc={'https://www.apple.com/v/iphone/home/bo/images/overview/compare/swatch_iphone_14_pro__c2bl98e0li4i_medium.png'}
                     name={"ipad"}

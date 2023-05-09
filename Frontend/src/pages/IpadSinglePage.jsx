@@ -7,7 +7,7 @@ import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
-function Singlepage() {
+function IpadSinglePage() {
   const [data, setData] = useState([]);
   const { id } = useParams();
   const [state, setState] = useState(false);
@@ -16,7 +16,7 @@ function Singlepage() {
 
   useEffect(() => {
     axios
-      .get(`https://rende-server-varun.onrender.com/iphone/${id}`)
+      .get(`https://rende-server-varun.onrender.com/ipad/${id}`)
       .then((res) => {
         // console.log(res)
         setData(res.data);
@@ -34,7 +34,8 @@ function Singlepage() {
       title: data.title,
       price: data.price,
       image: data.image[0],
-      quantity:1,
+      quantity: 1
+
     }
 
     axios.post("https://rende-server-varun.onrender.com/cartItems", payload)
@@ -43,7 +44,7 @@ function Singlepage() {
         setIsClicked(true)
         Swal.fire(
           '',
-          'Product added to cart',
+          'Item added cart',
           'success'
         )
       })
@@ -208,32 +209,32 @@ function Singlepage() {
                 <Text>for 24 mo.</Text>
               </Box>
             </Box>
-            <Flex justifyContent='space-around'marginLeft='50px'>
-            <Box marginTop="20px" >
-              <Button
-                width="150px"
-                borderRadius="20px"
-                color="white"
-                backgroundColor="blue.400"
-                marginRight="50px"
-                onClick={handleAddProduct}
-                isDisabled={isClicked}
-              >
-                {isClicked? "Item added" : "Add to cart"}
-              </Button>
-            </Box>
-            <Box marginTop="20px">
-              <Button
-                width="150px"
-                borderRadius="20px"
-                color="white"
-                backgroundColor="blue.400"
-                marginRight="50px"
-                float="right"
-              >
-                <Link to={"/cart"}>View Cart</Link>
-              </Button>
-            </Box>
+            <Flex justifyContent='space-around' marginLeft='50px'>
+              <Box marginTop="20px" >
+                <Button
+                  width="150px"
+                  borderRadius="20px"
+                  color="white"
+                  backgroundColor="blue.400"
+                  marginRight="50px"
+                  onClick={handleAddProduct}
+                  isDisabled={isClicked}
+                >
+                  {isClicked ? "Item added" : "Add to cart"}
+                </Button>
+              </Box>
+              <Box marginTop="20px">
+                <Button
+                  width="150px"
+                  borderRadius="20px"
+                  color="white"
+                  backgroundColor="blue.400"
+                  marginRight="50px"
+                  float="right"
+                >
+                  <Link to={"/cart"}>View Cart</Link>
+                </Button>
+              </Box>
             </Flex>
           </Box>
         </Box>
@@ -265,15 +266,15 @@ function Singlepage() {
             rounded="md"
             cursor="pointer"
           >
-              <Box>
-                <Text fontWeight="semibold" fontSize="2xl">
-                  Buy
-                </Text>
-                <Text>{`$ ${data.price}.`}</Text>
-                <Text fontSize="sm">
-                  Pay with Apple Pay or other payment methods.
-                </Text>
-              </Box>
+            <Box>
+              <Text fontWeight="semibold" fontSize="2xl">
+                Buy
+              </Text>
+              <Text>{`$ ${data.price}.`}</Text>
+              <Text fontSize="sm">
+                Pay with Apple Pay or other payment methods.
+              </Text>
+            </Box>
           </Box>
           <Box
             margin="auto"
@@ -304,4 +305,4 @@ function Singlepage() {
   );
 }
 
-export default Singlepage;
+export default IpadSinglePage;
